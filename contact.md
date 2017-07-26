@@ -10,8 +10,12 @@ zoom: 16
  
 You can find me in office 4C14 in the Pevensey 3 building, on the University of Sussex campus.
 
+- - -
+
 ## Telephone
 +44 (0)1273 873087 
+
+- - -
 
 ## Address
 Department of Physics and Astronomy \\

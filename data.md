@@ -7,13 +7,15 @@ The field of Astronomy is unique among the sciences in that astronomers cannot c
  
 My training in Astronomy has made me a specialist in selecting appropriate statistical techniques to extract as much scientific information from observations as possible, be it in Astronomy or elsewhere.
 
-## [DISCUS: The Data Intensive Science Centre at the University of Sussex](http://www.sussex.ac.uk/discus/)
+### [DISCUS: The Data Intensive Science Centre at the University of Sussex](http://www.sussex.ac.uk/discus/)
 As Research Fellow for DISCUS, I provide statistical and data analysis consultancy for both academia and industry. For consultancy enquiries,
  please [contact me](../contact/index.html) or [DISCUS](http://www.sussex.ac.uk/discus/contact).
 
 
-## Previous Projects
 Here are a few examples of inter-disciplinary projects I have worked on:
+
+- - - 
+
 
 ### [Variation in random capillary blood glucose and HbA1c as predictors of cystic fibrosis related diabetes (CFRD)](http://www.cysticfibrosisjournal.com/article/S1569-1993(15)30348-9/pdf)
 The Leeds CF unit implemented electronic care records (ECR) in 2007
@@ -30,6 +32,8 @@ We demonstrated that epidemiological datasets extracted from ECR reveal early po
 for prediction of CFRD from multivariate datasets. Multivariate Gaussian mixtures
 modelling of HbA1c and RCBG show potential as an indicator of CFRD that can
 be monitored over time, which might be realised with larger sample sizes.
+
+- - -
 
 ### [Gaussian process classification of Alzheimer's disease and mild cognitive impairment from resting-state fMRI](https://doi.org/10.1016/j.neuroimage.2015.02.037)
 
