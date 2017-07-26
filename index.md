@@ -4,4 +4,6 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
-![](./Figures/profile.jpg)
+![](./Figures/20110805-21.jpg)
+
+&copy; Richard Hurley
