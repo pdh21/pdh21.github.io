@@ -14,9 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Dr Peter Hurley
-email: p.d.hurley@sussex.ac.uk
+email: peter@datajavelin.com
 description: > # this means to ignore newlines until "baseurl:"
-  Project Scientist for the Herschel Extragalatic Legacy Project, with expertise in Astronomy, Data Analysis, Probabilistic modelling and Bayesian statistics.
+  Chief Technical Officer for DataJavelin Ltd., expertise in Data Sciences, Machine learning, Probabilistic modelling and Bayesian statistics.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://pdh21.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: PeteDonHurley
@@ -26,7 +26,7 @@ linkedin_username: peter-hurley-63b97090
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 
 # Exclude from processing.

@@ -1,18 +1,13 @@
 ---
 layout: page
-title: Data Analysis
+title: Data Science in Academia
 permalink: /data/
 ---
 The field of Astronomy is unique among the sciences in that astronomers cannot conduct experiments, they can only observe. The observations are made by telescopes which are incredibly expensive to both build and run, and the amount of data coming from these facilities is huge.
  
-My training in Astronomy has made me a specialist in selecting appropriate statistical techniques to extract as much scientific information from observations as possible, be it in Astronomy or elsewhere.
+My training in Astronomy has given me the ability to identify and apply the most appropriate data science techniques for a specific problem, so that as much scientific information can be extracted from observations as possible, be it in Astronomy or elsewhere.
 
-### [DISCUS: The Data Intensive Science Centre at the University of Sussex](http://www.sussex.ac.uk/discus/)
-As Research Fellow for DISCUS, I provide statistical and data analysis consultancy for both academia and industry. For consultancy enquiries,
- please [contact me](../contact/index.html) or [DISCUS](http://www.sussex.ac.uk/discus/contact).
-
-
-Here are a few examples of inter-disciplinary projects I have worked on:
+During my time in Academia, I was interested in and worked on numerous inter-disciplinary projects outside of Astronomy. Here are some examples:
 
 - - - 
 
@@ -63,3 +58,26 @@ resting state scan. Our results support the hypothesis that GP-LR models can be 
 stratification: the implemented model achieves 75% accuracy disambiguating healthy subjects from subjects with amnesic 
 mild cognitive impairment and 97% accuracy disambiguating amnesic mild cognitive impairment subjects from those with 
 Alzheimer's disease, accuracies are estimated using a held-out test set. Both results are significant at the 1% level.
+
+
+- - -
+
+### [Creating longitudinal datasets and cleaning existing data identifiers in a cystic fibrosis registry using a novel Bayesian probabilistic approach from astronomy](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199815)
+
+![](../Figures/Figure1_SED.jpeg){:style="float: right;margin-right: 7px;margin-top: 7px; width: 500px;"}
+
+Patient registry data are commonly collected as annual snapshots that need to be amalgamated to understand the 
+longitudinal progress of each patient. However, patient identifiers can either change or may not be available for legal 
+reasons when longitudinal data are collated from patients living in different countries. Here, we apply astronomical
+ statistical matching techniques to link individual patient records that can be used where identifiers are absent or to
+  validate uncertain identifiers. We adopt a Bayesian model framework used for probabilistically linking records in
+astronomy. We adapt this and validate it across blinded, annually collected data. This is a high-quality (Danish) 
+sub-set of data held in the European Cystic Fibrosis Society Patient Registry (ECFSPR). Our initial experiments achieved
+ a precision of 0.990 at a recall value of 0.987. However, detailed investigation of the discrepancies uncovered typing
+errors in 27 of the identifiers in the original Danish sub-set. After fixing these errors to create a new gold standard
+our algorithm correctly linked individual records across years achieving a precision of 0.997 at a recall value of 0.987
+without recourse to identifiers. Our Bayesian framework provides the probability of whether a pair of records belong to
+the same patient. Unlike other record linkage approaches, our algorithm can also use physical models, such as body mass
+index curves, as prior information for record linkage. We have shown our framework can create longitudinal samples where
+none existed and validate pre-existing patient identifiers. We have demonstrated that in this specific case this 
+automated approach is better than the existing identifiers.
