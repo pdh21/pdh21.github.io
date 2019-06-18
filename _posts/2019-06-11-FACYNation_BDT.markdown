@@ -4,6 +4,7 @@ mathjax: true
 title:  "FACYnation and Bayesian decision making."
 date:   2019-06-06 15:25:01 +0100
 categories: jekyll update
+description: A blog post on how the FACYnation model and Bayesian decision theory can be used to make optimal decisions
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -11,7 +12,7 @@ At DataJavelin, we specialise in building bespoke probabilistic models for our c
 
 Bayesians think about probability as a measure of plausibility i.e. how likely is to rain, given certain assumptions? This compares to the typical frequentist way of thinking about probability who define it as a frequency of events i.e. it has rained 3 out of 7 days. By using Bayesian methods to fit probabilistic models, we have the advantage of not just getting the “best fit” parameter values in our model, but also the uncertainty associated with that fit i.e. how plausible is that association. Taking the uncertainty into account is important when making informed, optimal decisions.
 
-We recently carried out consultancy work alongside [Prof. Seb Oliver](http://www.sussex.ac.uk/profiles/91548), [Dr Raph Shirley](http://raphaelshirley.co.uk/), [Dr Steve Duivenvoorden](https://www.linkedin.com/in/steven-duivenvoorden-813b8714a) from the University of Sussex and [Dr Edward Pope](https://www.metoffice.gov.uk/research/people/edward-pope) from the Met Office on the [Science and Technology Funding Council's Food plus network project](https://www.stfcfoodnetwork.org/), [FACYnation](https://www.stfcfoodnetwork.org/awarded-projects.html). The project's aims were to build an empirical, data-driven model of crop yield as a function of temperature and precipitation to help forecast the possible impact of changes in climate. It has led to a soon to be published paper (Shirley et al. 2019).
+We recently carried out consultancy work alongside [Prof. Seb Oliver](http://www.sussex.ac.uk/profiles/91548), [Dr Raphael Shirley](http://raphaelshirley.co.uk/), [Dr Steve Duivenvoorden](https://www.linkedin.com/in/steven-duivenvoorden-813b8714a) from the University of Sussex and [Dr Edward Pope](https://www.metoffice.gov.uk/research/people/edward-pope) from the Met Office on the [Science and Technology Funding Council's Food plus network project](https://www.stfcfoodnetwork.org/), [FACYnation](https://www.stfcfoodnetwork.org/awarded-projects.html). The project's aims were to build an empirical, data-driven model of crop yield as a function of temperature and precipitation to help forecast the possible impact of changes in climate. It has led to a soon to be published paper (Shirley et al. 2019).
 
 We were brought on the project to build the prototype data driven model, that takes in historic monthly temperature and precipitation data and corresponding yields for different regions and crops, and outputs a model that can predict future yields.
 
