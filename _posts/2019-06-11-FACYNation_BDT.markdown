@@ -294,12 +294,13 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x1171c2ef0>
+    <matplotlib.legend.Legend at 0x11e60a630>
 
 
 
 
 ![png](/Figures/2019-06-11-FACYNation_BDT/output_9_1.png)
+
 
 
 As can be seen in the plot above, not only do the temperature and precipitation differ for different months but there is also quite a between years for the same month. The variation in temperature and precipitation has a big effect on the growth of hay and so we should be taking it into account in our model. We will therefore use the mean and standard deviation for temperature and precipitation for each month and model the variation with a Normal distribution.
@@ -313,8 +314,8 @@ Now lets compile the FACYnation model, written in Stan and use it to predict the
 sm=pystan.StanModel(file='./FACYnation_crop_yield.stan')
 ```
 
-    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_a87c6a552578db6e55a31d9b645c7ffd NOW.
-    /Users/pdh21/anaconda3/envs/mindlab/lib/python3.6/site-packages/Cython/Compiler/Main.py:367: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /var/folders/nz/r72y6t5s5t3bbjl26n528zvr000gh2/T/tmpupyvos3q/stanfit4anon_model_a87c6a552578db6e55a31d9b645c7ffd_1905102235956176453.pyx
+    INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_a53ee2cc87ddc8008b1968b4560ec60b NOW.
+    /Users/pdh21/anaconda3/envs/mindlab/lib/python3.6/site-packages/Cython/Compiler/Main.py:367: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /var/folders/nz/r72y6t5s5t3bbjl26n528zvr000gh2/T/tmpasmvoiyk/stanfit4anon_model_a53ee2cc87ddc8008b1968b4560ec60b_447033745878422064.pyx
       tree = Parsing.p_module(s, pxd, full_module_name)
 
 
@@ -353,12 +354,12 @@ plt.xlabel('Yield (tonnes/hectare)')
 
 
 
-    <matplotlib.text.Text at 0x118591f28>
+    <matplotlib.text.Text at 0x120f179b0>
 
 
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_15_1.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_17_1.png)
 
 
 The plot above shows the posterior probability distribution for yield. It shows the probability of getting a particular yield of hay, given the variable weather in Eastbourne. The width of the distribution is driven by uncertianty in model parameters and more importantly, the variation in temperature and precipitation across years.
@@ -409,20 +410,22 @@ Lets see how the loss function behaves as a function of field size if we fix cro
 
 
 ```python
-plt.plot(loss_feed_simple(6,np.arange(1,30)))
-plt.ylabel('Loss (£)')
+plt.plot(np.arange(0,31),loss_feed_simple(6,np.arange(0,31)),c='#f6bc58')
+plt.ylabel('Loss (£)',)
 plt.xlabel('Field size (hectares)')
+plt.xlim(0,30)
+plt.ylim(0,12000)
 ```
 
 
 
 
-    <matplotlib.text.Text at 0x1185fa048>
+    (0, 12000)
 
 
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_22_1.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_24_1.png)
 
 
 You can see in the plot above, that for a crop yield of 6 tonnes per hectare, to minimse loss, the farmer should plant around 16 hectares of hay. However, we know from our posterior distribution on crop yield, that there are a range of possible values. The posterior distribution also gives us the probability of obtaining a particular crop yield.
@@ -476,31 +479,33 @@ opt_prob = optimize.minimize_scalar(lambda *args: np.mean(objective(*args)),
 print('Optimal field size = {:6.1f} hectares'.format(opt_prob.x))
 ```
 
-    Optimal field size =   20.2 hectares
+    Optimal field size =   18.6 hectares
 
 
-The optimum field size for growing hay for feed is 20.2 hectares. Lets see how it made the decision by looking at the objective function as a function of field size
+The optimum field size for growing hay for feed is 18.6 hectares. Lets see how it made the decision by looking at the objective function as a function of field size.
 
 
 ```python
 tmp=[]
-plt.figure(figsize=(5,5))
 for i in range(0,int(MAX_FIELD_SIZE)):
     tmp.append(np.mean(objective(i, crop_yield=crop_yield_post_pred, max_field_size=MAX_FIELD_SIZE)))
 plt.plot(np.arange(0,MAX_FIELD_SIZE),tmp)
+#plt.plot(np.arange(0,31),loss_feed_simple(7.13,np.arange(0,31)),c='#f6bc58')
 plt.ylabel('Cost')
 plt.xlabel('Field Size')
+plt.xlim(0,30)
+plt.ylim(0,12000)
 ```
 
 
 
 
-    <matplotlib.text.Text at 0x113e06668>
+    (0, 12000)
 
 
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_31_1.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_33_1.png)
 
 
 We can see how the optimisation approach has made its decision by searching for the minima. Note how the minimum is curved. Our loss function causes a sharp point minima but the uncertianty in yield prediction has caused the minimum in the objective function to be broadened. 
@@ -546,7 +551,7 @@ print('Crop yield prediction without uncertianty = {:6.2f}'.format(non_prob_crop
     Crop yield prediction without uncertianty =   7.13
 
 
-Because we are using one value for temperature and precipitation (the mean), we have one estimate for predicted yield, 7.13. Lets compare this to the posterior probability distribution of predicted yields from our probabilisitic model.
+Because we are using one value for temperature and precipitation (the mean), we have one estimate for predicted yield, 7.13. Lets compare this to the posterior probability distribution of predicted yields from our probabilistic model.
 
 
 ```python
@@ -558,15 +563,15 @@ plt.xlabel('Yield (tonnes/hectare)')
 
 
 
-    <matplotlib.text.Text at 0x118e56668>
+    <matplotlib.text.Text at 0x11f558eb8>
 
 
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_38_1.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_40_1.png)
 
 
-The predicted yield for the model without uncertianty seem to be quite a bit higher than the average yield from our probabilisitic model with uncertianty.
+The predicted yield for the model without uncertianty seem to be quite a bit higher than the average yield from our probabilistic model with uncertianty.
 
 Let see what the optimum field size would be. We can still use the objective function as before, but now it will be using one value for crop yields rather than the posterior probability distribution.
 
@@ -587,7 +592,7 @@ print('Optimal field size = {:6.1f} hectares'.format(opt_non_prob.x.reshape(1)[0
     Optimal field size =   14.0 hectares
 
 
-So the model without uncertianty suggests 14.0 hectares, compared to 20.2 hectares. That is quite a big difference. 
+So the model without uncertianty suggests 14.0 hectares, compared to 18.6 hectares. That is quite a big difference.
 
 But what is the cost of using the two different decisions?
 
@@ -604,7 +609,6 @@ hist_data=pd.DataFrame(hist_data)
 
 
 ```python
-plt.figure(figsize=(5,5))
 neg_loss_prob = -objective(opt_prob.x, crop_yield=hist_data) 
 neg_loss_non_prob = -objective(opt_non_prob.x, crop_yield=hist_data)
 sns.distplot(neg_loss_prob, label='Prob. model dist.', kde=False)
@@ -615,7 +619,7 @@ plt.legend(); plt.xlabel('Profit (negative loss)'); plt.ylabel('No. years');
 ```
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_44_0.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_46_0.png)
 
 
 The plot above shows a histrogram of profit (or losses) for between 1959 and 2018. By using the probabilistic model to make the decision (blue line), the farmer loses less on average over the last 60 years than if they were to use the model without uncertianty factored in (orange line).
@@ -636,12 +640,12 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x1186cbe80>
+    <matplotlib.legend.Legend at 0x11f535e80>
 
 
 
 
-![png](/Figures/2019-06-11-FACYNation_BDT/output_46_1.png)
+![png](/Figures/2019-06-11-FACYNation_BDT/output_48_1.png)
 
 
 
@@ -649,12 +653,12 @@ plt.legend()
 print('Cumulative loss difference between probabilistic and typical approach = £{:6.2f}'.format(np.cumsum(neg_loss_prob)[-1]-np.cumsum(neg_loss_non_prob)[-1]))
 ```
 
-    Cumulative loss difference between probabilistic and typical approach = £7461.40
+    Cumulative loss difference between probabilistic and typical approach = £26170.33
 
 
 The blue line in the plot above shows the cumulative loss if our probabilistic model was used to make the decision on how much hay to grow, compared to the orange line for when the typical approach, (where uncertianty or variation is ignored), is used. 
 
-The cumulative loss from the probabilistic model is significantly less. The cumulative difference between the two approaches is £7461.40. The probabilisitic model is also a lot more steady in how it behaves, as shown by the near straight blue line. The typical approach is less steady as shown by the more sporadic behaviour of the orange line. This behaviour of the lines is due to the same reason the distribution in the histograms are different. Not only does implementing our probabilistic model along with Bayesian decision theory save the farmer money, but it is also easier to financially plan for the future.
+The cumulative loss from the probabilistic model is significantly less. The cumulative difference between the two approaches is £26170.33. The probabilisitic model is also a lot more steady in how it behaves, as shown by the near straight blue line. The typical approach is less steady as shown by the more sporadic behaviour of the orange line. This behaviour of the lines is due to the same reason the distribution in the histograms are different. Not only does implementing our probabilistic model along with Bayesian decision theory save the farmer money, but it is also easier to financially plan for the future.
 
 ## Final Thoughts
 When used appropriately, probabilistic modelling and Bayesian decision making can help you make better decisions. The example here is in the agricultural sector, but Bayesian decision making can be applied in numerous areas.
