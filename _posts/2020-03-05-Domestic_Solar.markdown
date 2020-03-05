@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Domestic Solar"
+title:  "Solar PV, storage and more...an intro"
 date:   2020-03-05 15:25:01 +0100
 categories: jekyll update
 description: An introductory blog post for a series on energy in the home

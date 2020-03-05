@@ -288,7 +288,7 @@ plt.ylabel(r'Feels like Temp. ($^\circ$C)')
 
 
 
-![png](../Figures/2020-03-05-Met_Office_API_Automated/output_14_1.png)
+![png](/Figures/2020-03-05-Met_Office_API_Automated/output_14_1.png)
 
 
 ## Automating with Google Cloud Platform
